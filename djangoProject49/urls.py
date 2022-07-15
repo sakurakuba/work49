@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from issueTracker.views import IndexView, IssueView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', IndexView.as_view(), name="index"),
+    path('issue/<int:pk>/', IssueView.as_view(), name="issue_view"),
+
 ]

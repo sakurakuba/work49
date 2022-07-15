@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Issue View</title>
+</head>
+<body>
+<h1>Issue View</h1>
+    <h2>{{ issue.summary }}</h2>
+    <p>{{ issue.description }}</p>
+    <p>Status: {{ issue.status }}</p>
+    <p>Type: {{ issue.type }}</p>
+<p><a href="{% url "index" %}">Main</a> </p>
+</body>
+</html>

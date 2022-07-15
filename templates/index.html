@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<h1>Main</h1>
+{% for iss in issues %}
+    <h3>{{ iss.summary}}</h3> <span>{{ iss.status }}, {{ iss.type }}</span>
+    <p><a href="{% url "issue_view" iss.pk %}">Details</a> </p>
+
+{% endfor %}
+
+</body>
+</html>
