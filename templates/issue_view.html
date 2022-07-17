@@ -3,6 +3,9 @@
 <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="{% url "update" issue.pk %}">Update Issue</a>
 </li>
+    <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url "delete" issue.pk %}">Delete Issue</a>
+</li>
 {% endblock %}
 
 {% block content %}

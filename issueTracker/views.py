@@ -39,7 +39,6 @@ class IssueCreate(View):
             status = form.cleaned_data.get('status')
             type = form.cleaned_data.get('type')
             new_issue = Issue.objects.create(summary=summary, description=description, status=status, type=type)
-            print(new_issue)
             return redirect('issue_view', pk=new_issue.pk)
         return render(request, 'create.html', {'form': form})
 
@@ -70,3 +69,18 @@ class IssueUpdate(View):
             self.issue.save()
             return redirect('issue_view', pk=kwargs.get("pk"))
         return render(request, 'update.html', {'form': form})
+
+
+class IssueDelete(View):
+    def dispatch(self, request, *args, **kwargs):
+        pk = kwargs.get("pk")
+        self.issue = get_object_or_404(Issue, pk=pk)
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        context = {'issue': self.issue}
+        return render(request, "delete.html", context)
+
+    def post(self, request, *args, **kwargs):
+        self.issue.delete()
+        return redirect('index')
