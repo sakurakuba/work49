@@ -26,13 +26,28 @@ class IssueView(TemplateView):
         return super().get_context_data(**kwargs)
 
 
-class IssueUpdate(View):
+class IssueCreate(View):
+    def get(self, request, *args, **kwargs):
+        form = IssueForm(data=request.GET)
+        return render(request, "create.html", {'form': form})
 
+    def post(self, request, *args, **kwargs):
+        form = IssueForm(data=request.POST)
+        if form.is_valid():
+            summary = form.cleaned_data.get('summary')
+            description = form.cleaned_data.get('description')
+            status = form.cleaned_data.get('status')
+            type = form.cleaned_data.get('type')
+            new_issue = Issue.objects.create(summary=summary, description=description, status=status, type=type)
+            print(new_issue)
+            return redirect('issue_view', pk=new_issue.pk)
+        return render(request, 'create.html', {'form': form})
+
+
+class IssueUpdate(View):
     def dispatch(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         self.issue = get_object_or_404(Issue, pk=pk)
-        self.status = get_object_or_404(Status, pk=pk)
-        self.type = get_object_or_404(Type, pk=pk)
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
@@ -40,8 +55,8 @@ class IssueUpdate(View):
             form = IssueForm(initial={
                 "summary": self.issue.summary,
                 "description": self.issue.description,
-                "status": self.status.name,
-                "type": self.type.name
+                "status": self.issue.status,
+                "type": self.issue.type
             })
             return render(request, 'update.html', {'form': form})
 
@@ -53,7 +68,5 @@ class IssueUpdate(View):
             self.issue.status = form.cleaned_data.get('status')
             self.issue.type = form.cleaned_data.get('type')
             self.issue.save()
-            # self.status.save()
-            # self.type.save()
             return redirect('issue_view', pk=kwargs.get("pk"))
         return render(request, 'update.html', {'form': form})
