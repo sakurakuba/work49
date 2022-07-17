@@ -27,14 +27,14 @@ class Issue(BaseModel):
 
 
 class Status(models.Model):
-    name = models.CharField(max_length=50, verbose_name='status')
+    name = models.CharField(max_length=50, default="new", verbose_name='status')
 
     def __str__(self):
         return f"{self.name}"
 
 
 class Type(models.Model):
-    name = models.CharField(max_length=50, verbose_name='type')
+    name = models.CharField(max_length=50, default="task", verbose_name='type')
 
     def __str__(self):
         return f"{self.name}"

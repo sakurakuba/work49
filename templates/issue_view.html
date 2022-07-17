@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Issue View</title>
-</head>
-<body>
-<h1>Issue View</h1>
-    <h2>{{ issue.summary }}</h2>
-    <p>{{ issue.description }}</p>
-    <p>Status: {{ issue.status }}</p>
-    <p>Type: {{ issue.type }}</p>
-<p><a href="{% url "index" %}">Main</a> </p>
-</body>
-</html>
+{% extends "base.html" %}
+{% block nav %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url "update" issue.pk %}">Update Issue</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<h4>Issue Details</h4>
+    <dl class="row">
+  <dt class="col-sm-3">Summary:</dt>
+  <dd class="col-sm-9">{{ issue.summary }}</dd>
+        <dt class="col-sm-3">Description:</dt>
+  <dd class="col-sm-9">{{ issue.description }}</dd>
+    <dt class="col-sm-3">Status:</dt>
+  <dd class="col-sm-9">{{ issue.status }}</dd>
+    <dt class="col-sm-3">Type:</dt>
+  <dd class="col-sm-9">{{ issue.type }}</dd>
+
+</dl>
+{% endblock %}

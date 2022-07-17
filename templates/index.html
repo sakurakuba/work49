@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Main</title>
-</head>
-<body>
-<h1>Main</h1>
-{% for iss in issues %}
-    <h3>{{ iss.summary}}</h3> <span>{{ iss.status }}, {{ iss.type }}</span>
-    <p><a href="{% url "issue_view" iss.pk %}">Details</a> </p>
+{% extends "base.html" %}
+{% block content %}
+    {% for iss in issues %}
+<div class="list-group">
+  <a href="{% url "issue_view" iss.pk %}" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ iss.summary }}</h5>
+      <small>{{ iss.status }}</small>
+    </div>
+    <p class="mb-1">{{ iss.type }}</p>
+  </a>
+    {% endfor %}
+</div>
+{% endblock %}
 
-{% endfor %}
-
-</body>
-</html>
