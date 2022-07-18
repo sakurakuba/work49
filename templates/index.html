@@ -14,7 +14,9 @@
       <h5 class="mb-1">{{ iss.summary }}</h5>
       <small>{{ iss.status }}</small>
     </div>
-    <p class="mb-1">{{ iss.type }}</p>
+      {% for t in iss.type.all %}
+        <p class="mb-1">{{ t.name }}</p>
+          {% endfor %}
   </a>
     {% endfor %}
 </div>

@@ -15,8 +15,7 @@ class Issue(BaseModel):
     summary = models.CharField(max_length=100, verbose_name='summary')
     description = models.TextField(max_length=800, null=True, blank=True, verbose_name='description', default='not specified')
     status = models.ForeignKey("issueTracker.Status", on_delete=models.PROTECT, related_name='statuses', verbose_name='status')
-    type = models.ForeignKey("issueTracker.Type", on_delete=models.PROTECT, related_name='types',  verbose_name='type')
-
+    type = models.ManyToManyField("issueTracker.Type",  related_name='types')
 
     def __str__(self):
         return f"{self.id}. {self.summary} - status: {self.status}, type: {self.type}"
