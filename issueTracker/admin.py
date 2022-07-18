@@ -13,7 +13,7 @@ class IssueAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at', 'updated_at']
 
     def get_types(self, obj):
-        return "\n".join([t.types for t in obj.type.all()])
+        return "\n".join([t.name for t in obj.type.all()])
 
 
 admin.site.register(Issue, IssueAdmin)
