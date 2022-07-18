@@ -17,6 +17,7 @@ class Issue(BaseModel):
     status = models.ForeignKey("issueTracker.Status", on_delete=models.PROTECT, related_name='statuses', verbose_name='status')
     type = models.ForeignKey("issueTracker.Type", on_delete=models.PROTECT, related_name='types',  verbose_name='type')
 
+
     def __str__(self):
         return f"{self.id}. {self.summary} - status: {self.status}, type: {self.type}"
 
@@ -27,15 +28,15 @@ class Issue(BaseModel):
 
 
 class Status(models.Model):
-    name = models.CharField(max_length=50, default="new", verbose_name='status')
+    name = models.CharField(max_length=50, verbose_name='status', default="new")
 
     def __str__(self):
-        return f"{self.name}"
+        return self.name
 
 
 class Type(models.Model):
-    name = models.CharField(max_length=50, default="task", verbose_name='type')
+    name = models.CharField(max_length=50, verbose_name='type', default="task")
 
     def __str__(self):
-        return f"{self.name}"
+        return self.name
 
