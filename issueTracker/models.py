@@ -18,7 +18,7 @@ class Issue(BaseModel):
     type = models.ManyToManyField("issueTracker.Type",  related_name='types')
 
     def __str__(self):
-        return f"{self.id}. {self.summary} - status: {self.status}, type: {self.type}"
+        return f"{self.id}. {self.summary} - status: {self.status}, type: {self.type.all()}"
 
     class Meta:
         db_table = 'issues'

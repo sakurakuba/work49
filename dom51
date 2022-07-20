@@ -1,0 +1,25 @@
+from issueTracker.models import Issue, Status, Type
+from django.date import datetime, timedelta
+from django.utils import timezone
+
+#1
+>>> Issue.objects.filter(status__name="done").filter(created_at__gte=timezone.now()-timedelta(days=30))
+
+## expected result:
+<QuerySet [<Issue: 3. test333 - status: done, type: issueTracker.Type.None>, <Issue: 5. test777 - status: done, type: issueTracker.Type.None>, <Issue: 10. ds - status: done, type: issueTracker.Type.None>, <Issue: 11. qqq - status: done, type: issueTracker.Type.None>, <Issue: 13. error added - status: done, type: issueTracker.Type.None>, <Issue: 19. yes - status: done, type: issueTracker.Type.None>]>
+
+
+#2
+>>> Issue.objects.filter(status__name__in=("done","new"), type__name__in=("bug", "task"))
+## expected:
+<QuerySet [<Issue: 1. bug fix1 - status: new, type: issueTracker.Type.None>, <Issue: 3. test333 - status: done, type: issueTracker.Type.None>, <Issue: 4. test444 - status: new, type: issueTracker.Type.None>, <Issue: 5. test777 - status: done, type: issueTracker.Type.None>, <Issue: 12. salsa - status: new, type: issueTracker.Type.None>, <Issue: 13. error added - status: done, type: issueTracker.Type.None>, <Issue: 18. eee - status: new, type: issueTracker.Type.None>, <Issue: 19. yes - status: done, type: issueTracker.Type.None>, <Issue: 23. test06 - status: new, type: issueTracker.Type.None>, <Issue: 24. task08 - status: new, type: issueTracker.Type.None>, <Issue: 24. task08 - status: new, type: issueTracker.Type.None>, <Issue: 26. 9 - status: new, type: issueTracker.Type.None>]>
+
+
+#3
+>>> q1 = Q(summary__contains="bug")
+>>> q2 = Q(type__name="bug")
+>>> q3 = Q(status__name="done")
+>>> Issue.objects.filter(q1 | q2).exclude(q3)
+## expected:
+<QuerySet [<Issue: 1. bug fix1 - status: new, type: issueTracker.Type.None>, <Issue: 12. salsa - status: new, type: issueTracker.Type.None>, <Issue: 15. ffff - status: in progress, type: issueTracker.Type.None>, <Issue: 18. eee - status: new, type: issueTracker.Type.None>, <Issue: 21. asjk00 - status: in progress, type: issueTracker.Type.None>, <Issue: 24. task08 - status: new, type: issueTracker.Type.None>, <Issue: 27. bug - status: new, type: issueTracker.Type.None>]>
+
