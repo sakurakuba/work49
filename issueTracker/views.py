@@ -4,17 +4,26 @@ from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
 from django.urls import reverse
 from django.views import View
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, ListView
 
 from issueTracker.forms import IssueForm
 from issueTracker.models import Issue, Type, Status
 
 
-class IndexView(View):
-    def get(self, request, *args, **kwargs):
-        issues = Issue.objects.order_by('-created_at')
-        context = {'issues': issues}
-        return render(request, "index.html", context)
+# class IndexView(View):
+#     def get(self, request, *args, **kwargs):
+#         issues = Issue.objects.order_by('-created_at')
+#         context = {'issues': issues}
+#         return render(request, "index.html", context)
+
+class IndexView(ListView):
+    model = Issue
+    template_name = "index.html"
+    context_object_name = "issues"
+    ordering = ('created_at',)
+    paginate_by = 5
+
+
 
 
 class IssueView(TemplateView):

@@ -26,3 +26,6 @@ class IssueForm(forms.ModelForm):
             raise ValidationError("Summary too long")
         return summary
 
+
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=50, required=False, label='Search')
