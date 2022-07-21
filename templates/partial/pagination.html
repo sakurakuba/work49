@@ -2,7 +2,7 @@
 
 <ul class="pagination mt-3">
     <li class="page-item">
-        <a class="page-link" href="?{{ request|replace:1 }}">Начало</a>
+        <a class="page-link" href="?{{ request|replace:1 }}">First</a>
     </li>
     {% if page_obj.has_previous %}
         <li class="page-item">
@@ -41,6 +41,6 @@
         </li>
     {% endif %}
     <li class="page-item">
-        <a class="page-link" href="?{{ request|replace:page_obj.paginator.num_pages }}">В конец</a>
+        <a class="page-link" href="?{{ request|replace:page_obj.paginator.num_pages }}">Last</a>
     </li>
 </ul>
