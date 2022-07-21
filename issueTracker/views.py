@@ -33,7 +33,7 @@ class IndexView(ListView):
     def get_queryset(self):
         if self.search_value:
             return Issue.objects.filter(Q(summary__contains=self.search_value) | Q(description__contains=self.search_value))
-        return Issue.objects.all()
+        return Issue.objects.order_by("-created_at")
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
