@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+from django.urls import reverse
 from django.utils.datetime_safe import date
 
 
@@ -52,6 +53,9 @@ class Project(models.Model):
 
     def __str__(self):
         return f"{self.id}. {self.project_name} - start date: {self.start_date}, end date: {self.end_date}"
+
+    def get_absolute_url(self):
+        return reverse('project_view', kwargs={"pk": self.pk})
 
     class Meta:
         db_table = 'projects'
