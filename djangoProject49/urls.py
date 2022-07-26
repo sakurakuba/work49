@@ -22,12 +22,12 @@ from issueTracker.views import IndexView, IssueView, IssueUpdate, IssueCreate, I
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name="index"),
+    path('', AllProjectsView.as_view(), name="index"),
+    path('project/<int:pk>/', ProjectView.as_view(), name="project_view"),
+    path('project/create/', ProjectCreate.as_view(), name="project_create"),
+    #path('', IndexView.as_view(), name="index"),
     path('issue/<int:pk>/', IssueView.as_view(), name="issue_view"),
     path('issue/<int:pk>/update/', IssueUpdate.as_view(), name="update"),
     path('issue/<int:pk>/delete/', IssueDelete.as_view(), name="delete"),
-    path('issue/create/', IssueCreate.as_view(), name="create"),
-    path('allprojects/', AllProjectsView.as_view(), name="all_projects_view"),
-    path('project/<int:pk>/', ProjectView.as_view(), name="project_view"),
-    path('project/create/', ProjectCreate.as_view(), name="project_create"),
+    path('project/<int:pk>/issue/create/', IssueCreate.as_view(), name="create"),
 ]

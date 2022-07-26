@@ -14,7 +14,7 @@ class IssueForm(forms.ModelForm):
 
     class Meta:
         model = Issue
-        fields = "__all__"
+        fields = ["summary", "description", "status", "type"]
         widgets = {
             "type": widgets.CheckboxSelectMultiple,
             "description": widgets.Textarea(attrs={"placeholder": "please add text here"})

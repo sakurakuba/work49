@@ -21,6 +21,7 @@
       {% for t in iss.type.all %}
         <p class="mb-1">{{ t.name }}</p>
           {% endfor %}
+  <p class="mb-1">Project: {{ iss.project.project_name }}</p>
   </a>
     {% endfor %}
 </div>

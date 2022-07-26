@@ -64,34 +64,17 @@ class IssueView(TemplateView):
         return super().get_context_data(**kwargs)
 
 
-class IssueCreate(FormView):
+class IssueCreate(CreateView):
     template_name = 'create.html'
     form_class = IssueForm
 
-    def get_success_url(self):
-        return reverse('issue_view', kwargs={'pk': self.issue.pk})
-
-    def get(self, request):
-        form = self.form_class()
-        context = self.get_context(form=form)
-        return render(request, self.template_name, context)
-
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(data=request.POST)
-        if form.is_valid():
-            return self.form_valid(form)
-        return self.form_invalid(form)
-
-    def get_context(self, **kwargs):
-        return kwargs
-
     def form_valid(self, form):
-        self.issue = form.save()
+        project = get_object_or_404(Project, pk=self.kwargs.get("pk"))
+        form.instance.project = project
         return super().form_valid(form)
 
-    def form_invalid(self, form):
-        context = self.get_context(form=form)
-        return render(self.request, self.template_name, context)
+    def get_success_url(self):
+        return reverse("project_view", kwargs={"pk": self.object.project.pk})
 
 
 class IssueUpdate(FormView):
