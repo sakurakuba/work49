@@ -17,7 +17,7 @@ class Issue(BaseModel):
     description = models.TextField(max_length=800, null=True, blank=True, verbose_name='description', default='not specified')
     status = models.ForeignKey("issueTracker.Status", on_delete=models.PROTECT, related_name='statuses', verbose_name='status')
     type = models.ManyToManyField("issueTracker.Type",  related_name='types')
-    ##project = models.ForeignKey("issueTracker.Project", on_delete=models.CASCADE, related_name='projects', verbose_name='project')
+    project = models.ForeignKey("issueTracker.Project", on_delete=models.CASCADE, related_name='projects', verbose_name='project')
 
     def __str__(self):
         return f"{self.id}. {self.summary} - status: {self.status}, type: {self.type.all()}"
@@ -47,6 +47,8 @@ class Project(models.Model):
     end_date = models.DateField(blank=True, default='', verbose_name='End date')
     project_name = models.CharField(max_length=50, verbose_name='Project name')
     project_description = models.TextField(max_length=1000, verbose_name='Project description', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Create date')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated date')
 
     def __str__(self):
         return f"{self.id}. {self.project_name} - start date: {self.start_date}, end date: {self.end_date}"
