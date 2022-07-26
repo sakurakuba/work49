@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django.forms import widgets
 from django.forms import ModelMultipleChoiceField
 
-from .models import Issue, Type, Status
+from .models import Issue, Type, Status, Project
 
 
 class IssueForm(forms.ModelForm):
@@ -29,3 +29,9 @@ class IssueForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=50, required=False, label='Search')
+
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ["project_name", "project_description", "start_date", "end_date"]

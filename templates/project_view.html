@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block nav %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Update Issue</a>
+</li>
+    <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Delete Issue</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<h4>Project Details</h4>
+    <dl class="row">
+  <dt class="col-sm-3">Project name:</dt>
+  <dd class="col-sm-9">{{ project.project_name }}</dd>
+        <dt class="col-sm-3">Project Description:</dt>
+  <dd class="col-sm-9">{{ project.project_description }}</dd>
+    <dt class="col-sm-3">Start date:</dt>
+  <dd class="col-sm-9">{{ project.start_date }}</dd>
+    <dt class="col-sm-3">End date:</dt>
+            <dd class="col-sm-9">{{ project.end_date }}</dd>
+    <dt class="col-sm-3">Related issues:</dt>
+        <br/>
+    {% for iss in project.projects.all %}
+<div class="list-group">
+  <a href="{% url "issue_view" iss.pk %}" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ iss.summary }}</h5>
+      <small>{{ iss.status }}</small>
+    </div>
+      {% for t in iss.type.all %}
+        <p class="mb-1">{{ t.name }}</p>
+          {% endfor %}
+  </a>
+    {% endfor %}
+</div>
+    {% if is_paginated %}
+    {% include "partial/pagination.html" %}
+    {% endif %}
+
+</dl>
+{% endblock %}

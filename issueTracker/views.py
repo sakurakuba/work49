@@ -6,11 +6,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.utils.http import urlencode
 from django.views import View
-from django.views.generic import TemplateView, FormView, ListView
+from django.views.generic import TemplateView, FormView, ListView, DetailView, CreateView
 
-from issueTracker.forms import IssueForm, SearchForm
-from issueTracker.models import Issue, Type, Status
+from issueTracker.forms import IssueForm, SearchForm, ProjectForm
+from issueTracker.models import Issue, Type, Status, Project
 
+
+#### Issue workflow
 
 # class IndexView(View):
 #     def get(self, request, *args, **kwargs):
@@ -135,3 +137,54 @@ class IssueDelete(View):
     def post(self, request, *args, **kwargs):
         self.issue.delete()
         return redirect('index')
+
+
+##### Project workflow
+
+class AllProjectsView(ListView):
+    model = Project
+    template_name = "allprojects.html"
+    context_object_name = "projects"
+    ordering = ["-created_at"]
+    paginate_by = 8
+
+    def get(self, request, *args, **kwargs):
+        self.form = self.get_search_form()
+        self.search_value = self.get_search_value()
+        return super().get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        if self.search_value:
+            return Project.objects.filter(Q(project_name__contains=self.search_value) | Q(project_description__contains=self.search_value))
+        return Project.objects.order_by("-created_at")
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['form'] = self.form
+        if self.search_value:
+            val = urlencode({'search': self.search_value})
+            context['query'] = val
+            context['search'] = self.search_value
+        return context
+
+    def get_search_form(self):
+        return SearchForm(self.request.GET)
+
+    def get_search_value(self):
+        if self.form.is_valid():
+            return self.form.cleaned_data.get("search")
+
+
+class ProjectView(DetailView):
+    template_name = 'project_view.html'
+    model = Project
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectView, self).get_context_data(**kwargs)
+        context['issues'] = self.object.projects.all().order_by('-created_at')
+        return context
+
+
+class ProjectCreate(CreateView):
+    form_class = ProjectForm
+    template_name = "project_create.html"
