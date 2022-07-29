@@ -23,6 +23,9 @@ class Issue(BaseModel):
     def __str__(self):
         return f"{self.id}. {self.summary} - status: {self.status}, type: {self.type.all()}"
 
+    def get_absolute_url(self):
+        return reverse('issue_view', kwargs={"pk": self.pk})
+
     class Meta:
         db_table = 'issues'
         verbose_name = 'Issue'

@@ -3,6 +3,12 @@
 <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="{% url "create" project.pk %}">Create new Issue</a>
 </li>
+    <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url "project_update" project.pk %}">Update Project</a>
+</li>
+    <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url "project_delete" project.pk %}">Delete Project</a>
+</li>
 {% endblock %}
 
 {% block content %}

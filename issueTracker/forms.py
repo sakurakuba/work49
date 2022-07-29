@@ -35,3 +35,14 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = ["project_name", "project_description", "start_date", "end_date"]
+
+
+# class IssueDeleteForm(forms.ModelForm):
+#     class Meta:
+#         model = Issue
+#         fields = ["summary"]
+#
+#     def clean_title(self):
+#         if self.instance.title != self.cleaned_data.get("summary"):
+#             raise ValidationError("Issue name doesn't match")
+#         return self.cleaned_data.get("summary")
