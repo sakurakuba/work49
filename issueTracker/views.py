@@ -141,3 +141,15 @@ class ProjectView(DetailView):
 class ProjectCreate(CreateView):
     form_class = ProjectForm
     template_name = "project_create.html"
+
+
+class ProjectUpdate(UpdateView):
+        template_name = 'project_update.html'
+        form_class = ProjectForm
+        model = Project
+
+
+class ProjectDelete(DeleteView):
+    model = Project
+    template_name = "project_delete.html"
+    success_url = reverse_lazy("index")
