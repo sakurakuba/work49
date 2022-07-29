@@ -3,10 +3,10 @@ from django.forms import forms
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
 from django.views import View
-from django.views.generic import TemplateView, FormView, ListView, DetailView, CreateView, UpdateView
+from django.views.generic import TemplateView, FormView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from issueTracker.forms import IssueForm, SearchForm, ProjectForm
 from issueTracker.models import Issue, Type, Status, Project
@@ -83,19 +83,13 @@ class IssueUpdate(UpdateView):
         model = Issue
 
 
-class IssueDelete(View):
-    def dispatch(self, request, *args, **kwargs):
-        pk = kwargs.get("pk")
-        self.issue = get_object_or_404(Issue, pk=pk)
-        return super().dispatch(request, *args, **kwargs)
+class IssueDelete(DeleteView):
+    model = Issue
+    template_name = "delete.html"
 
-    def get(self, request, *args, **kwargs):
-        context = {'issue': self.issue}
-        return render(request, "delete.html", context)
+    def get_success_url(self):
+        return reverse("project_view", kwargs={"pk": self.object.project.pk})
 
-    def post(self, request, *args, **kwargs):
-        self.issue.delete()
-        return redirect('index')
 
 
 ##### Project workflow
