@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% block nav %}
-    <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:project_view" issue.project.pk %}">Back to Project</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:update" issue.pk %}">Update Issue</a>
-</li>
-    <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:delete" issue.pk %}">Delete Issue</a>
-</li>
+    {% if request.user.is_authenticated %}
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url "issueTracker:project_view" issue.project.pk %}">Back to Project</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url "issueTracker:update" issue.pk %}">Update Issue</a>
+        </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url "issueTracker:delete" issue.pk %}">Delete Issue</a>
+        </li>
+    {% endif %}
 {% endblock %}
 
 {% block content %}

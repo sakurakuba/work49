@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.forms import forms
 from django.shortcuts import render, get_object_or_404, redirect
@@ -64,7 +65,7 @@ class IssueView(TemplateView):
         return super().get_context_data(**kwargs)
 
 
-class IssueCreate(CreateView):
+class IssueCreate(LoginRequiredMixin, CreateView):
     template_name = 'create.html'
     form_class = IssueForm
 
@@ -77,13 +78,13 @@ class IssueCreate(CreateView):
         return reverse("issueTracker:project_view", kwargs={"pk": self.object.project.pk})
 
 
-class IssueUpdate(UpdateView):
+class IssueUpdate(LoginRequiredMixin, UpdateView):
         template_name = 'update.html'
         form_class = IssueForm
         model = Issue
 
 
-class IssueDelete(DeleteView):
+class IssueDelete(LoginRequiredMixin, DeleteView):
     model = Issue
     template_name = "delete.html"
 
@@ -138,18 +139,18 @@ class ProjectView(DetailView):
         return context
 
 
-class ProjectCreate(CreateView):
+class ProjectCreate(LoginRequiredMixin, CreateView):
     form_class = ProjectForm
     template_name = "project_create.html"
 
 
-class ProjectUpdate(UpdateView):
+class ProjectUpdate(LoginRequiredMixin, UpdateView):
         template_name = 'project_update.html'
         form_class = ProjectForm
         model = Project
 
 
-class ProjectDelete(DeleteView):
+class ProjectDelete(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = "project_delete.html"
     success_url = reverse_lazy("issueTracker:index")
