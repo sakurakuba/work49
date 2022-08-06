@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block nav %}
 <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "create" project.pk %}">Create new Issue</a>
+    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:create" project.pk %}">Create new Issue</a>
 </li>
     <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "project_update" project.pk %}">Update Project</a>
+    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:project_update" project.pk %}">Update Project</a>
 </li>
     <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "project_delete" project.pk %}">Delete Project</a>
+    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:project_delete" project.pk %}">Delete Project</a>
 </li>
 {% endblock %}
 
@@ -22,11 +22,11 @@
   <dd class="col-sm-9">{{ project.start_date }}</dd>
     <dt class="col-sm-3">End date:</dt>
             <dd class="col-sm-9">{{ project.end_date }}</dd>
-    <dt class="col-sm-3">Related issues:</dt>
+    <dt class="col-sm-3">Related issueTracker:issues:</dt>
         <br/>
     {% for iss in project.projects.all %}
 <div class="list-group">
-  <a href="{% url "issue_view" iss.pk %}" class="list-group-item list-group-item-action">
+  <a href="{% url "issueTracker:issue_view" iss.pk %}" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{ iss.summary }}</h5>
       <small>{{ iss.status }}</small>

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block nav %}
 <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "project_create" %}">Create new Project</a>
+    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:project_create" %}">Create new Project</a>
 </li>
     <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "issues" %}">List all Issues</a>
+    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:issues" %}">List all issues</a>
 </li>
 {% endblock %}
 
@@ -15,7 +15,7 @@
     <br/>
     {% for pr in projects %}
 <div class="list-group">
-  <a href="{% url "project_view" pr.pk %}" class="list-group-item list-group-item-action">
+  <a href="{% url "issueTracker:project_view" pr.pk %}" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{ pr.project_name }}</h5>
       <small>{{ pr.start_date }}</small>

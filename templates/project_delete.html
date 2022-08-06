@@ -6,6 +6,6 @@
     {% csrf_token %}
     <h4>Please, confirm deletion of this Project "{{ project.project_name }}"? </h4>
     <button type="submit" style="display: inline-block">Yes</button>
-    <button type="submit" style="display: inline"><a href="{% url "project_view" project.pk %}">No</a></button>
+    <button type="submit" style="display: inline"><a href="{% url "issueTracker:project_view" project.pk %}">No</a></button>
     </form>
 {% endblock %}

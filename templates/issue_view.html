@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block nav %}
     <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "project_view" issue.project.pk %}">Back to Project</a>
+    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:project_view" issue.project.pk %}">Back to Project</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "update" issue.pk %}">Update Issue</a>
+    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:update" issue.pk %}">Update Issue</a>
 </li>
     <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url "delete" issue.pk %}">Delete Issue</a>
+    <a class="nav-link active" aria-current="page" href="{% url "issueTracker:delete" issue.pk %}">Delete Issue</a>
 </li>
 {% endblock %}
 

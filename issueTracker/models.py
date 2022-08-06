@@ -24,7 +24,7 @@ class Issue(BaseModel):
         return f"{self.id}. {self.summary} - status: {self.status}, type: {self.type.all()}"
 
     def get_absolute_url(self):
-        return reverse('issue_view', kwargs={"pk": self.pk})
+        return reverse('issueTracker:issue_view', kwargs={"pk": self.pk})
 
     class Meta:
         db_table = 'issues'
@@ -58,7 +58,7 @@ class Project(models.Model):
         return f"{self.id}. {self.project_name} - start date: {self.start_date}, end date: {self.end_date}"
 
     def get_absolute_url(self):
-        return reverse('project_view', kwargs={"pk": self.pk})
+        return reverse('issueTracker:project_view', kwargs={"pk": self.pk})
 
     class Meta:
         db_table = 'projects'
