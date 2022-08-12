@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.db.models import Q
@@ -151,13 +152,16 @@ class UserAdd(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get("pk"))
-        user = form.save(commit=False)
-        for u in project.users.all():
-            u.set(user)
+        users = User.objects.all()
+        for u in users:
+            if u == User.username:
+                project.users.add(u.id)
         return redirect("issueTracker:project_view", pk=project.pk)
 
     def get_success_url(self):
         return reverse("issueTracker:project_view", kwargs={"pk": self.object.project.pk})
+
+
 
 
 class ProjectUpdate(LoginRequiredMixin, UpdateView):
@@ -172,20 +176,16 @@ class ProjectDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("issueTracker:index")
 
 
-# class UserDelete(DeleteView):
-#     model = User
-#     form_class = UserDeleteForm
-#     template_name = "delete_users.html"
-#
-#     def get(self, request, *args, **kwargs):
-#         user = self.request.user
-#         return super().delete(request, *args, **kwargs)
-#
-#     def get_success_url(self):
-#         return reverse("issueTracker:project_view", kwargs={"pk": self.object.pk})
+class UserDelete(DeleteView):
+    model = User
+    form_class = UserDeleteForm
+    template_name = "delete_users.html"
 
-def user_delete(request, pk):
-    project = get_object_or_404(Project, pk=pk)
-    for u in project.users.all():
-        u.delete()
-    return reverse("issueTracker:index")
+    def get(self, request, *args, **kwargs):
+        project = get_object_or_404(Project, pk=self.kwargs.get("pk"))
+        users = self.request.user
+        return super().delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse("issueTracker:project_view", kwargs={"pk": self.object.pk})
+
