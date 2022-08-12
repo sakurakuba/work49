@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4>Delete User from Project</h4>
+<form action="" method ="POST">
+    {% csrf_token %}
+    <p>Are you sure to delete "{{user.username}}"?</p>
+    <input type="submit" value="Delete"/>
+</form>
+{% endblock %}

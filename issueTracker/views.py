@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.db.models import Q
 from django.forms import forms
 from django.shortcuts import render, get_object_or_404, redirect
@@ -9,7 +10,7 @@ from django.utils.http import urlencode
 from django.views import View
 from django.views.generic import TemplateView, FormView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from issueTracker.forms import IssueForm, SearchForm, ProjectForm
+from issueTracker.forms import IssueForm, SearchForm, ProjectForm, UserAddForm, UserDeleteForm
 from issueTracker.models import Issue, Type, Status, Project
 
 
@@ -144,6 +145,21 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
     template_name = "project_create.html"
 
 
+class UserAdd(LoginRequiredMixin, CreateView):
+    form_class = UserAddForm
+    template_name = "users.html"
+
+    def form_valid(self, form):
+        project = get_object_or_404(Project, pk=self.kwargs.get("pk"))
+        user = form.save(commit=False)
+        for u in project.users.all():
+            u.set(user)
+        return redirect("issueTracker:project_view", pk=project.pk)
+
+    def get_success_url(self):
+        return reverse("issueTracker:project_view", kwargs={"pk": self.object.project.pk})
+
+
 class ProjectUpdate(LoginRequiredMixin, UpdateView):
         template_name = 'project_update.html'
         form_class = ProjectForm
@@ -154,3 +170,22 @@ class ProjectDelete(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = "project_delete.html"
     success_url = reverse_lazy("issueTracker:index")
+
+
+# class UserDelete(DeleteView):
+#     model = User
+#     form_class = UserDeleteForm
+#     template_name = "delete_users.html"
+#
+#     def get(self, request, *args, **kwargs):
+#         user = self.request.user
+#         return super().delete(request, *args, **kwargs)
+#
+#     def get_success_url(self):
+#         return reverse("issueTracker:project_view", kwargs={"pk": self.object.pk})
+
+def user_delete(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    for u in project.users.all():
+        u.delete()
+    return reverse("issueTracker:index")

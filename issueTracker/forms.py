@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.forms import widgets
 from django.forms import ModelMultipleChoiceField
@@ -36,6 +37,23 @@ class ProjectForm(forms.ModelForm):
         model = Project
         fields = ["project_name", "project_description", "start_date", "end_date"]
 
+
+
+class UserAddForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ["users"]
+        widgets = {
+            "type": widgets.CheckboxSelectMultiple
+        }
+
+class UserDeleteForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ["users"]
+        widgets = {
+            "type": widgets.CheckboxSelectMultiple
+        }
 
 # class IssueDeleteForm(forms.ModelForm):
 #     class Meta:

@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 # Create your models here.
@@ -47,6 +48,7 @@ class Type(models.Model):
 
 
 class Project(models.Model):
+    users = models.ManyToManyField(get_user_model(), related_name="users")
     start_date = models.DateField(default=date.today, verbose_name='Start date')
     end_date = models.DateField(blank=True, default='', verbose_name='End date')
     project_name = models.CharField(max_length=50, verbose_name='Project name')
@@ -55,7 +57,7 @@ class Project(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated date')
 
     def __str__(self):
-        return f"{self.id}. {self.project_name} - start date: {self.start_date}, end date: {self.end_date}"
+        return f"{self.id}. {self.project_name} - start date: {self.start_date}, end date: {self.end_date}, users: {self.users}"
 
     def get_absolute_url(self):
         return reverse('issueTracker:project_view', kwargs={"pk": self.pk})
