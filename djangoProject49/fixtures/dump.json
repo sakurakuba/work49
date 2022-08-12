@@ -1,358 +1,585 @@
 [
 {
-    "model": "issueTracker.issue",
-    "pk": 1,
-    "fields": {
-        "created_at": "2022-07-15T06:26:56.925Z",
-        "updated_at": "2022-07-17T01:26:28.151Z",
-        "summary": "bug fix1",
-        "description": "some test bla bla ttt",
-        "status": 1,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 1,
+  "fields": {
+    "created_at": "2022-07-15T06:26:56.925Z",
+    "updated_at": "2022-07-17T01:26:28.151Z",
+    "summary": "bug fix1",
+    "description": "some test bla bla ttt",
+    "status": 1,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 2,
-    "fields": {
-        "created_at": "2022-07-15T06:27:28.120Z",
-        "updated_at": "2022-07-15T06:27:28.120Z",
-        "summary": "test",
-        "description": "some test bla bla",
-        "status": 2,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 2,
+  "fields": {
+    "created_at": "2022-07-15T06:27:28.120Z",
+    "updated_at": "2022-07-15T06:27:28.120Z",
+    "summary": "test",
+    "description": "some test bla bla",
+    "status": 2,
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 3,
-    "fields": {
-        "created_at": "2022-07-15T06:27:48.102Z",
-        "updated_at": "2022-07-18T03:57:24.292Z",
-        "summary": "test333",
-        "description": "some test bla bla",
-        "status": 3,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 3,
+  "fields": {
+    "created_at": "2022-07-15T06:27:48.102Z",
+    "updated_at": "2022-07-18T03:57:24.292Z",
+    "summary": "test333",
+    "description": "some test bla bla",
+    "status": 3,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 4,
-    "fields": {
-        "created_at": "2022-07-15T06:29:33.823Z",
-        "updated_at": "2022-07-17T01:23:28.673Z",
-        "summary": "test444",
-        "description": "not specified",
-        "status": 1,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 4,
+  "fields": {
+    "created_at": "2022-07-15T06:29:33.823Z",
+    "updated_at": "2022-07-17T01:23:28.673Z",
+    "summary": "test444",
+    "description": "not specified",
+    "status": 1,
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 5,
-    "fields": {
-        "created_at": "2022-07-15T06:29:45.045Z",
-        "updated_at": "2022-07-17T01:26:03.637Z",
-        "summary": "test777",
-        "description": "not specified",
-        "status": 3,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 5,
+  "fields": {
+    "created_at": "2022-07-15T06:29:45.045Z",
+    "updated_at": "2022-07-17T01:26:03.637Z",
+    "summary": "test777",
+    "description": "not specified",
+    "status": 3,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 6,
-    "fields": {
-        "created_at": "2022-07-15T06:29:56.115Z",
-        "updated_at": "2022-07-17T04:34:05.331Z",
-        "summary": "test9991119090",
-        "description": "zzzzwww",
-        "status": 2,
-        "project": 1,
-        "type": [
-            3
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 6,
+  "fields": {
+    "created_at": "2022-07-15T06:29:56.115Z",
+    "updated_at": "2022-07-17T04:34:05.331Z",
+    "summary": "test9991119090",
+    "description": "zzzzwww",
+    "status": 2,
+    "project": 1,
+    "type": [
+      3
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 7,
-    "fields": {
-        "created_at": "2022-07-17T02:22:54.194Z",
-        "updated_at": "2022-07-18T04:54:49.936Z",
-        "summary": "test000",
-        "description": "qweiqwie",
-        "status": 2,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 7,
+  "fields": {
+    "created_at": "2022-07-17T02:22:54.194Z",
+    "updated_at": "2022-07-18T04:54:49.936Z",
+    "summary": "test000",
+    "description": "qweiqwie",
+    "status": 2,
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 10,
-    "fields": {
-        "created_at": "2022-07-17T02:50:21.054Z",
-        "updated_at": "2022-07-18T03:44:37.687Z",
-        "summary": "ds",
-        "description": "d",
-        "status": 3,
-        "project": 1,
-        "type": [
-            3
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 10,
+  "fields": {
+    "created_at": "2022-07-17T02:50:21.054Z",
+    "updated_at": "2022-07-18T03:44:37.687Z",
+    "summary": "ds",
+    "description": "d",
+    "status": 3,
+    "project": 1,
+    "type": [
+      3
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 11,
-    "fields": {
-        "created_at": "2022-07-17T03:06:41.269Z",
-        "updated_at": "2022-07-18T08:55:03.479Z",
-        "summary": "qqq",
-        "description": "qqq",
-        "status": 3,
-        "project": 1,
-        "type": [
-            3
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 11,
+  "fields": {
+    "created_at": "2022-07-17T03:06:41.269Z",
+    "updated_at": "2022-07-18T08:55:03.479Z",
+    "summary": "qqq",
+    "description": "qqq",
+    "status": 3,
+    "project": 1,
+    "type": [
+      3
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 12,
-    "fields": {
-        "created_at": "2022-07-17T04:11:15.112Z",
-        "updated_at": "2022-07-18T06:07:57.568Z",
-        "summary": "salsa",
-        "description": "test",
-        "status": 1,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 12,
+  "fields": {
+    "created_at": "2022-07-17T04:11:15.112Z",
+    "updated_at": "2022-07-18T06:07:57.568Z",
+    "summary": "salsa",
+    "description": "test",
+    "status": 1,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 13,
-    "fields": {
-        "created_at": "2022-07-17T04:32:35.052Z",
-        "updated_at": "2022-07-18T08:34:36.955Z",
-        "summary": "error added",
-        "description": "www",
-        "status": 3,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 13,
+  "fields": {
+    "created_at": "2022-07-17T04:32:35.052Z",
+    "updated_at": "2022-07-18T08:34:36.955Z",
+    "summary": "error added",
+    "description": "www",
+    "status": 3,
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 15,
-    "fields": {
-        "created_at": "2022-07-18T17:58:47.261Z",
-        "updated_at": "2022-07-18T20:49:54.153Z",
-        "summary": "ffff",
-        "description": "ffff",
-        "status": 2,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 15,
+  "fields": {
+    "created_at": "2022-07-18T17:58:47.261Z",
+    "updated_at": "2022-07-18T20:49:54.153Z",
+    "summary": "ffff",
+    "description": "ffff",
+    "status": 2,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 18,
-    "fields": {
-        "created_at": "2022-07-18T20:41:54.325Z",
-        "updated_at": "2022-07-18T20:44:28.018Z",
-        "summary": "eee",
-        "description": "ee",
-        "status": 1,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 18,
+  "fields": {
+    "created_at": "2022-07-18T20:41:54.325Z",
+    "updated_at": "2022-07-18T20:44:28.018Z",
+    "summary": "eee",
+    "description": "ee",
+    "status": 1,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 19,
-    "fields": {
-        "created_at": "2022-07-18T20:44:45.229Z",
-        "updated_at": "2022-07-19T06:22:31.583Z",
-        "summary": "yes",
-        "description": "yes!!!!",
-        "status": 3,
-        "project": 1,
-        "type": [
-            2,
-            3
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 19,
+  "fields": {
+    "created_at": "2022-07-18T20:44:45.229Z",
+    "updated_at": "2022-07-19T06:22:31.583Z",
+    "summary": "yes",
+    "description": "yes!!!!",
+    "status": 3,
+    "project": 1,
+    "type": [
+      2,
+      3
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 21,
-    "fields": {
-        "created_at": "2022-07-19T06:43:46.710Z",
-        "updated_at": "2022-07-19T06:59:02.995Z",
-        "summary": "asjk00",
-        "description": "test",
-        "status": 2,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 21,
+  "fields": {
+    "created_at": "2022-07-19T06:43:46.710Z",
+    "updated_at": "2022-07-19T06:59:02.995Z",
+    "summary": "asjk00",
+    "description": "test",
+    "status": 2,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 22,
-    "fields": {
-        "created_at": "2022-07-19T07:00:27.923Z",
-        "updated_at": "2022-07-19T07:16:11.894Z",
-        "summary": "test01",
-        "description": "03",
-        "status": 1,
-        "project": 1,
-        "type": [
-            3
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 22,
+  "fields": {
+    "created_at": "2022-07-19T07:00:27.923Z",
+    "updated_at": "2022-07-19T07:16:11.894Z",
+    "summary": "test01",
+    "description": "03",
+    "status": 1,
+    "project": 1,
+    "type": [
+      3
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 23,
-    "fields": {
-        "created_at": "2022-07-19T07:17:50.433Z",
-        "updated_at": "2022-07-19T07:17:50.433Z",
-        "summary": "test06",
-        "description": "06",
-        "status": 1,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 23,
+  "fields": {
+    "created_at": "2022-07-19T07:17:50.433Z",
+    "updated_at": "2022-07-19T07:17:50.433Z",
+    "summary": "test06",
+    "description": "06",
+    "status": 1,
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 24,
-    "fields": {
-        "created_at": "2022-07-19T07:19:21.893Z",
-        "updated_at": "2022-07-19T07:21:06.843Z",
-        "summary": "task08",
-        "description": "08",
-        "status": 1,
-        "project": 1,
-        "type": [
-            1,
-            2
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 24,
+  "fields": {
+    "created_at": "2022-07-19T07:19:21.893Z",
+    "updated_at": "2022-07-19T07:21:06.843Z",
+    "summary": "task08",
+    "description": "08",
+    "status": 1,
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 26,
-    "fields": {
-        "created_at": "2022-07-19T07:23:38.639Z",
-        "updated_at": "2022-07-19T07:23:38.640Z",
-        "summary": "9",
-        "description": "not specified",
-        "status": 1,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 26,
+  "fields": {
+    "created_at": "2022-07-19T07:23:38.639Z",
+    "updated_at": "2022-07-26T06:32:42.306Z",
+    "summary": "999",
+    "description": "not specified",
+    "status": 2,
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
 },
 {
-    "model": "issueTracker.issue",
-    "pk": 27,
-    "fields": {
-        "created_at": "2022-07-20T03:10:12.054Z",
-        "updated_at": "2022-07-20T03:10:12.054Z",
-        "summary": "bug",
-        "description": "www",
-        "status": 1,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
+  "model": "issueTracker.issue",
+  "pk": 27,
+  "fields": {
+    "created_at": "2022-07-20T03:10:12.054Z",
+    "updated_at": "2022-07-20T03:10:12.054Z",
+    "summary": "bug",
+    "description": "www",
+    "status": 1,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.status",
-    "pk": 1,
-    "fields": {
-        "name": "new"
-    }
+  "model": "issueTracker.issue",
+  "pk": 30,
+  "fields": {
+    "created_at": "2022-07-26T05:46:21.147Z",
+    "updated_at": "2022-07-26T05:46:21.147Z",
+    "summary": "test222",
+    "description": "not specifieddsfd",
+    "status": 2,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.status",
-    "pk": 2,
-    "fields": {
-        "name": "in progress"
-    }
+  "model": "issueTracker.issue",
+  "pk": 31,
+  "fields": {
+    "created_at": "2022-07-26T05:59:19.418Z",
+    "updated_at": "2022-07-26T05:59:19.419Z",
+    "summary": "test333",
+    "description": "not specifiedasdsa",
+    "status": 1,
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
 },
 {
-    "model": "issueTracker.status",
-    "pk": 3,
-    "fields": {
-        "name": "done"
-    }
+  "model": "issueTracker.issue",
+  "pk": 32,
+  "fields": {
+    "created_at": "2022-07-26T06:04:54.562Z",
+    "updated_at": "2022-07-26T06:04:54.562Z",
+    "summary": "test44",
+    "description": "not specified",
+    "status": 1,
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.type",
-    "pk": 1,
-    "fields": {
-        "name": "task"
-    }
+  "model": "issueTracker.issue",
+  "pk": 33,
+  "fields": {
+    "created_at": "2022-07-26T06:12:29.701Z",
+    "updated_at": "2022-07-26T06:12:58.496Z",
+    "summary": "bingo01",
+    "description": "askjdfklsajL;FJ DVASLK",
+    "status": 2,
+    "project": 2,
+    "type": [
+      1
+    ]
+  }
 },
 {
-    "model": "issueTracker.type",
-    "pk": 2,
-    "fields": {
-        "name": "bug"
-    }
+  "model": "issueTracker.issue",
+  "pk": 44,
+  "fields": {
+    "created_at": "2022-07-29T05:35:25.019Z",
+    "updated_at": "2022-07-29T05:35:25.019Z",
+    "summary": "bingo04",
+    "description": "not specified",
+    "status": 1,
+    "project": 5,
+    "type": [
+      1
+    ]
+  }
 },
 {
-    "model": "issueTracker.type",
-    "pk": 3,
-    "fields": {
-        "name": "enhancement"
-    }
+  "model": "issueTracker.issue",
+  "pk": 45,
+  "fields": {
+    "created_at": "2022-07-29T05:35:36.061Z",
+    "updated_at": "2022-07-29T05:35:36.062Z",
+    "summary": "bingo05",
+    "description": "fff",
+    "status": 2,
+    "project": 5,
+    "type": [
+      2
+    ]
+  }
 },
 {
-    "model": "issueTracker.project",
-    "pk": 1,
-    "fields": {
-        "start_date": "2022-07-26",
-        "end_date": "2022-08-01",
-        "project_name": "Dom54",
-        "project_description": "adding new model and new admin",
-        "created_at": "2022-07-26T02:39:59.445Z",
-        "updated_at": "2022-07-26T02:39:59.445Z"
-    }
+  "model": "issueTracker.issue",
+  "pk": 46,
+  "fields": {
+    "created_at": "2022-07-29T05:35:52.129Z",
+    "updated_at": "2022-07-29T05:35:52.129Z",
+    "summary": "bingo06",
+    "description": "uuu",
+    "status": 3,
+    "project": 5,
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "issueTracker.issue",
+  "pk": 51,
+  "fields": {
+    "created_at": "2022-08-11T02:53:39.832Z",
+    "updated_at": "2022-08-11T02:53:39.832Z",
+    "summary": "xcvcx",
+    "description": "not specifiedc",
+    "status": 1,
+    "project": 10,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "issueTracker.issue",
+  "pk": 53,
+  "fields": {
+    "created_at": "2022-08-12T06:17:30.430Z",
+    "updated_at": "2022-08-12T06:17:30.430Z",
+    "summary": "bingo06",
+    "description": "not specified",
+    "status": 1,
+    "project": 17,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "issueTracker.status",
+  "pk": 1,
+  "fields": {
+    "name": "new"
+  }
+},
+{
+  "model": "issueTracker.status",
+  "pk": 2,
+  "fields": {
+    "name": "in progress"
+  }
+},
+{
+  "model": "issueTracker.status",
+  "pk": 3,
+  "fields": {
+    "name": "done"
+  }
+},
+{
+  "model": "issueTracker.type",
+  "pk": 1,
+  "fields": {
+    "name": "task"
+  }
+},
+{
+  "model": "issueTracker.type",
+  "pk": 2,
+  "fields": {
+    "name": "bug"
+  }
+},
+{
+  "model": "issueTracker.type",
+  "pk": 3,
+  "fields": {
+    "name": "enhancement"
+  }
+},
+{
+  "model": "issueTracker.project",
+  "pk": 1,
+  "fields": {
+    "start_date": "2022-07-26",
+    "end_date": "2022-08-01",
+    "project_name": "Dom54",
+    "project_description": "adding new model and new admin",
+    "created_at": "2022-07-26T02:39:59.445Z",
+    "updated_at": "2022-07-26T02:39:59.445Z",
+    "users": []
+  }
+},
+{
+  "model": "issueTracker.project",
+  "pk": 2,
+  "fields": {
+    "start_date": "2022-07-28",
+    "end_date": "2022-08-21",
+    "project_name": "Test01",
+    "project_description": "bla bla",
+    "created_at": "2022-07-26T06:09:45.015Z",
+    "updated_at": "2022-07-26T06:09:45.015Z",
+    "users": []
+  }
+},
+{
+  "model": "issueTracker.project",
+  "pk": 5,
+  "fields": {
+    "start_date": "2022-07-29",
+    "end_date": "2022-08-22",
+    "project_name": "Test02",
+    "project_description": "ggg",
+    "created_at": "2022-07-29T05:35:11.317Z",
+    "updated_at": "2022-07-29T05:35:11.317Z",
+    "users": []
+  }
+},
+{
+  "model": "issueTracker.project",
+  "pk": 9,
+  "fields": {
+    "start_date": "2022-08-06",
+    "end_date": "2022-08-22",
+    "project_name": "test9",
+    "project_description": "dsaf",
+    "created_at": "2022-08-06T20:00:19.024Z",
+    "updated_at": "2022-08-06T20:00:19.024Z",
+    "users": []
+  }
+},
+{
+  "model": "issueTracker.project",
+  "pk": 10,
+  "fields": {
+    "start_date": "2022-08-11",
+    "end_date": "2022-08-21",
+    "project_name": "Test08",
+    "project_description": "bbb",
+    "created_at": "2022-08-11T02:42:00.390Z",
+    "updated_at": "2022-08-11T02:42:00.390Z",
+    "users": []
+  }
+},
+{
+  "model": "issueTracker.project",
+  "pk": 11,
+  "fields": {
+    "start_date": "2022-08-11",
+    "end_date": "2022-08-21",
+    "project_name": "Test06",
+    "project_description": "vhjkfvckc",
+    "created_at": "2022-08-11T04:50:01.545Z",
+    "updated_at": "2022-08-12T05:30:40.252Z",
+    "users": []
+  }
+},
+{
+  "model": "issueTracker.project",
+  "pk": 12,
+  "fields": {
+    "start_date": "2022-08-11",
+    "end_date": "2022-08-01",
+    "project_name": "Test11",
+    "project_description": "dgbzdb",
+    "created_at": "2022-08-11T05:18:02.701Z",
+    "updated_at": "2022-08-12T05:08:30.988Z",
+    "users": []
+  }
+},
+{
+  "model": "issueTracker.project",
+  "pk": 17,
+  "fields": {
+    "start_date": "2022-08-12",
+    "end_date": "2022-08-21",
+    "project_name": "Test07",
+    "project_description": "bnmvnb",
+    "created_at": "2022-08-12T06:04:51.391Z",
+    "updated_at": "2022-08-12T06:04:51.391Z",
+    "users": []
+  }
 }
 ]
