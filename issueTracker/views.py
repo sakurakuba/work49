@@ -1,5 +1,6 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.forms import forms
@@ -11,7 +12,7 @@ from django.utils.http import urlencode
 from django.views import View
 from django.views.generic import TemplateView, FormView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from issueTracker.forms import IssueForm, SearchForm, ProjectForm, UserAddForm, UserDeleteForm
+from issueTracker.forms import IssueForm, SearchForm, ProjectForm, UserAddForm
 from issueTracker.models import Issue, Type, Status, Project
 
 
@@ -131,37 +132,29 @@ class AllProjectsView(ListView):
             return self.form.cleaned_data.get("search")
 
 
-class ProjectView(DetailView):
+class ProjectView(PermissionRequiredMixin, DetailView):
     template_name = 'project_view.html'
     model = Project
+    permission_required = "issueTracker.view_project"
 
     def get_context_data(self, **kwargs):
         context = super(ProjectView, self).get_context_data(**kwargs)
         context['issues'] = self.object.projects.all().order_by('-created_at')
         return context
 
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().users.all()
 
-class ProjectCreate(LoginRequiredMixin, CreateView):
+
+class ProjectCreate(PermissionRequiredMixin, CreateView):
     form_class = ProjectForm
     template_name = "project_create.html"
-
-
-class UserAdd(LoginRequiredMixin, CreateView):
-    form_class = UserAddForm
-    template_name = "users.html"
+    permission_required = "issueTracker.add_project"
 
     def form_valid(self, form):
-        project = get_object_or_404(Project, pk=self.kwargs.get("pk"))
-        users = User.objects.all()
-        for u in users:
-            if u == User.username:
-                project.users.add(u.id)
-        return redirect("issueTracker:project_view", pk=project.pk)
-
-    def get_success_url(self):
-        return reverse("issueTracker:project_view", kwargs={"pk": self.object.project.pk})
-
-
+        response = super().form_valid(form)
+        self.object.users.add(self.request.user)
+        return response
 
 
 class ProjectUpdate(LoginRequiredMixin, UpdateView):
@@ -176,16 +169,16 @@ class ProjectDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("issueTracker:index")
 
 
-class UserDelete(DeleteView):
-    model = User
-    form_class = UserDeleteForm
-    template_name = "delete_users.html"
+class UserAdd(PermissionRequiredMixin, UpdateView):
+    model = Project
+    form_class = UserAddForm
+    template_name = "users.html"
+    permission_required = "issueTracker.add_users_to_project"
 
-    def get(self, request, *args, **kwargs):
-        project = get_object_or_404(Project, pk=self.kwargs.get("pk"))
-        users = self.request.user
-        return super().delete(request, *args, **kwargs)
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().users.all()
 
     def get_success_url(self):
         return reverse("issueTracker:project_view", kwargs={"pk": self.object.pk})
+
 

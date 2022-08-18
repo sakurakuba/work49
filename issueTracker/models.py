@@ -48,7 +48,7 @@ class Type(models.Model):
 
 
 class Project(models.Model):
-    users = models.ManyToManyField(get_user_model(), related_name="users")
+    users = models.ManyToManyField(get_user_model(), related_name="projects")
     start_date = models.DateField(default=date.today, verbose_name='Start date')
     end_date = models.DateField(blank=True, default='', verbose_name='End date')
     project_name = models.CharField(max_length=50, verbose_name='Project name')
@@ -66,4 +66,5 @@ class Project(models.Model):
         db_table = 'projects'
         verbose_name = 'Project'
         verbose_name_plural = 'Projects'
+        permissions = [('add_users_to_project', 'Add users to project')]
 
