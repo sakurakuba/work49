@@ -143,7 +143,7 @@ class ProjectView(PermissionRequiredMixin, DetailView):
         return context
 
     def has_permission(self):
-        return super().has_permission() and self.request.user in self.get_object().users.all()
+        return super().has_permission() and self.request.user in self.get_object().users.all() or self.request.user.is_superuser
 
 
 class ProjectCreate(PermissionRequiredMixin, CreateView):
@@ -174,9 +174,19 @@ class UserAdd(PermissionRequiredMixin, UpdateView):
     form_class = UserAddForm
     template_name = "users.html"
     permission_required = "issueTracker.add_users_to_project"
+    
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["pk"] = self.request.user.pk
+        return kwargs
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        self.object.users.add(self.request.user)
+        return response
 
     def has_permission(self):
-        return super().has_permission() and self.request.user in self.get_object().users.all()
+        return super().has_permission() and self.request.user in self.get_object().users.all() or self.request.user.is_superuser
 
     def get_success_url(self):
         return reverse("issueTracker:project_view", kwargs={"pk": self.object.pk})

@@ -34,11 +34,15 @@ class ProjectForm(forms.ModelForm):
 
 
 class UserAddForm(forms.ModelForm):
-    users = forms.ModelMultipleChoiceField(queryset=get_user_model().objects.all(), widget=widgets.CheckboxSelectMultiple)
+    def __init__(self, *args, **kwargs):
+        pk = kwargs.pop("pk")
+        super().__init__(*args, **kwargs)
+        self.fields['users'].queryset = get_user_model().objects.exclude(pk=pk)
 
     class Meta:
         model = Project
         fields = ("users",)
+        widget = {"users": widgets.CheckboxSelectMultiple}
 
 
 
