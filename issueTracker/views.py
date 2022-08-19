@@ -142,6 +142,8 @@ class ProjectView(PermissionRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProjectView, self).get_context_data(**kwargs)
         context['issues'] = self.object.projects.all().order_by('-created_at')
+        u = self.request.user.groups.filter(name__in=['Project Manager', 'Team Lead']).exists()
+        context['u'] = u
         return context
 
     def has_permission(self):
