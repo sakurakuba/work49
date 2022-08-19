@@ -1,0 +1,291 @@
+[
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Project Manager",
+    "permissions": [
+      [
+        "add_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "change_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "delete_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "view_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "add_project",
+        "issueTracker",
+        "project"
+      ],
+      [
+        "add_users_to_project",
+        "issueTracker",
+        "project"
+      ],
+      [
+        "change_project",
+        "issueTracker",
+        "project"
+      ],
+      [
+        "delete_project",
+        "issueTracker",
+        "project"
+      ],
+      [
+        "view_project",
+        "issueTracker",
+        "project"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Team Lead",
+    "permissions": [
+      [
+        "add_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "change_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "delete_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "view_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "add_users_to_project",
+        "issueTracker",
+        "project"
+      ],
+      [
+        "view_project",
+        "issueTracker",
+        "project"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Developer",
+    "permissions": [
+      [
+        "add_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "change_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "view_issue",
+        "issueTracker",
+        "issue"
+      ],
+      [
+        "view_project",
+        "issueTracker",
+        "project"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$7lC3cpvSN4G09XNLhcky5N$7y0mspqAlRNI1+pBMJ4+J29CXEXys+GEn270Ifb5D3A=",
+    "last_login": "2022-08-19T00:32:47.850Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@admin.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-07-15T04:25:47.888Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$rpBAPM2VRUHRz4liNPxtsw$2t/Z3PwqdYamROcC3f7x8IcZvtzW7bd/S5Ntow9/tto=",
+    "last_login": "2022-08-17T04:10:27.041Z",
+    "is_superuser": false,
+    "username": "user2",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-08-08T02:16:33.315Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$nKgflc29HZokYVmQgjFMgT$/a/+6RMfLBVWjWNoOEROM795SrsvJOeeUKNFJW42SX8=",
+    "last_login": "2022-08-08T02:23:46.067Z",
+    "is_superuser": false,
+    "username": "user3",
+    "first_name": "John",
+    "last_name": "",
+    "email": "test@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-08-08T02:23:02.540Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$cFkX94XP3koab0ugbg99HW$yjgueeeU7YZ3/rzBli6yFP9OVUXdltpZ4oCw8QutTZA=",
+    "last_login": "2022-08-12T06:38:13.003Z",
+    "is_superuser": false,
+    "username": "user4",
+    "first_name": "John",
+    "last_name": "",
+    "email": "some@some.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-08-12T06:38:12.804Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$fFI3epyXCGUjhecCo8QCaY$PXvydfwWvgzjU+o218xRYp4iHbCgT+kwXdV0dZr4QO8=",
+    "last_login": "2022-08-19T00:24:46.116Z",
+    "is_superuser": false,
+    "username": "user6",
+    "first_name": "K",
+    "last_name": "",
+    "email": "some@some.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-08-18T03:10:27Z",
+    "groups": [],
+    "user_permissions": [
+      [
+        "add_project",
+        "issueTracker",
+        "project"
+      ],
+      [
+        "view_project",
+        "issueTracker",
+        "project"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$9mhhLtXuQRXBUj5GIuBhTu$DrSJ+kIXVilhnOl1ERd0K4Qazpx2Pj7jx9ZBMHKG1Ac=",
+    "last_login": "2022-08-19T00:35:08.626Z",
+    "is_superuser": false,
+    "username": "manager",
+    "first_name": "Lola",
+    "last_name": "",
+    "email": "some@some.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-08-18T05:10:57Z",
+    "groups": [
+      [
+        "Project Manager"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$UIxn7RvLLusv1tW6WL01MH$OPRLlhf9EMJIJ5ip3145y7GvxaE1yXPJJurKeCtBOM4=",
+    "last_login": "2022-08-19T00:37:01.360Z",
+    "is_superuser": false,
+    "username": "lead",
+    "first_name": "Leyla",
+    "last_name": "",
+    "email": "some@some.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-08-18T05:11:39Z",
+    "groups": [
+      [
+        "Team Lead"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$MwjCqivSnjeWnsImrTQeFS$F1DmH7Pedudj/gQeTB6emlOB/I+T2w/FUUUcFicAotI=",
+    "last_login": "2022-08-19T00:38:24.995Z",
+    "is_superuser": false,
+    "username": "dev",
+    "first_name": "Llama",
+    "last_name": "",
+    "email": "some@some.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-08-18T05:12:04Z",
+    "groups": [
+      [
+        "Developer"
+      ]
+    ],
+    "user_permissions": []
+  }
+}
+]
