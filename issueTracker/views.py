@@ -24,7 +24,7 @@ from issueTracker.models import Issue, Type, Status, Project
 #         context = {'issues': issues}
 #         return render(request, "index.html", context)
 
-class IndexView(ListView):
+class IndexView(LoginRequiredMixin, ListView):
     model = Issue
     template_name = "index.html"
     context_object_name = "issues"
@@ -58,19 +58,19 @@ class IndexView(ListView):
             return self.form.cleaned_data.get("search")
 
 
-class IssueView(TemplateView):
+class IssueView(PermissionRequiredMixin, DetailView):
+    model = Issue
     template_name = 'issue_view.html'
+    permission_required = "issueTracker.view_issue"
 
-    def get_context_data(self, **kwargs):
-        pk = kwargs.get("pk")
-        issue = get_object_or_404(Issue, pk=pk)
-        kwargs["issue"] = issue
-        return super().get_context_data(**kwargs)
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().project.users.all() or self.request.user.is_superuser
 
 
-class IssueCreate(LoginRequiredMixin, CreateView):
+class IssueCreate(PermissionRequiredMixin, CreateView):
     template_name = 'create.html'
     form_class = IssueForm
+    permission_required = "issueTracker.add_issue"
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get("pk"))
@@ -81,15 +81,17 @@ class IssueCreate(LoginRequiredMixin, CreateView):
         return reverse("issueTracker:project_view", kwargs={"pk": self.object.project.pk})
 
 
-class IssueUpdate(LoginRequiredMixin, UpdateView):
+class IssueUpdate(PermissionRequiredMixin, UpdateView):
         template_name = 'update.html'
         form_class = IssueForm
         model = Issue
+        permission_required = "issueTracker.change_issue"
 
 
-class IssueDelete(LoginRequiredMixin, DeleteView):
+class IssueDelete(PermissionRequiredMixin, DeleteView):
     model = Issue
     template_name = "delete.html"
+    permission_required = "issueTracker.delete_issue"
 
     def get_success_url(self):
         return reverse("issueTracker:project_view", kwargs={"pk": self.object.project.pk})
@@ -157,16 +159,25 @@ class ProjectCreate(PermissionRequiredMixin, CreateView):
         return response
 
 
-class ProjectUpdate(LoginRequiredMixin, UpdateView):
+
+class ProjectUpdate(PermissionRequiredMixin, UpdateView):
         template_name = 'project_update.html'
         form_class = ProjectForm
         model = Project
+        permission_required = "issueTracker.change_project"
+
+        def has_permission(self):
+            return super().has_permission() and self.request.user in self.get_object().users.all() or self.request.user.is_superuser
 
 
-class ProjectDelete(LoginRequiredMixin, DeleteView):
+class ProjectDelete(PermissionRequiredMixin, DeleteView):
     model = Project
     template_name = "project_delete.html"
     success_url = reverse_lazy("issueTracker:index")
+    permission_required = "issueTracker.delete_project"
+
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().users.all() or self.request.user.is_superuser
 
 
 class UserAdd(PermissionRequiredMixin, UpdateView):
