@@ -32,7 +32,7 @@
     {% if user.is_superuser or u and user in project.users.all %}
     <dt class="col-sm-3">Project users:</dt>
     {% for u in project.users.all %}
-        <span><dd class="col-sm-9">{{ u.username }}</dd></span>
+        <span><dd class="col-sm-9"> <a class="nav-link" href="{% url "accounts:profile" u.pk %}">{{ u.username }}</a> </dd></span>
     {% endfor %}
     {% endif %}
     <dt class="col-sm-3">Related issues:</dt>
