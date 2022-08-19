@@ -121,6 +121,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_ROOT = Path.joinpath(BASE_DIR, "uploads")
+MEDIA_URL = "/media/"
+
 LOGIN_URL = 'accounts:login'
 LOGOUT_REDIRECT_URL = "issueTracker:index"
 LOGIN_REDIRECT_URL = "issueTracker:index"
