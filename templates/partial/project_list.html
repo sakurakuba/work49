@@ -1,0 +1,17 @@
+<h1 class="text-center">Projects</h1>
+<div class="row">
+    {% for project in projects %}
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.project_name }}</h5>
+                </div>
+                <a href="{{ project.get_absolute_url }}" class="card-link btn btn-primary">More</a>
+            </div>
+        </div>
+    {% empty %}
+    {% endfor %}
+    {% if is_paginated %}
+        <div class="text-center">{% include "partial/pagination.html" %}</div>
+    {% endif %}
+</div>

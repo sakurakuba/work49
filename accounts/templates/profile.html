@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile{% endblock %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="#">Edit</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Update Password</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <div class="card flex-row mt-3">
+        {% if user.profile.avatar %}
+            <img src="{{ user.profile.avatar.url }}" class="card-img-top w-25" alt="...">
+        {% endif %}
+        <div class="card-body ms-5">
+            <h5 class="card-title">Username: {{ user.username }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">GitHub: {{ user.profile.github }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">About: {{ user.profile.about }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Email: {{ user.email }}</h6>
+        </div>
+    </div>
+    {% include "partial/project_list.html" %}
+{% endblock %}
