@@ -10,6 +10,7 @@ from django.urls import reverse
 from django.views.generic import CreateView, DetailView, UpdateView
 from accounts.forms import MyUserCreationForm, UserChangeForm, ProfileChangeForm
 
+User = get_user_model()
 
 class RegisterView(CreateView):
     model = User
@@ -36,7 +37,7 @@ class RegisterView(CreateView):
 
 
 class ProfileView(LoginRequiredMixin, DetailView):
-    model = get_user_model()
+    model = User
     template_name = "profile.html"
     paginate_by = 6
     paginate_orphans = 0
@@ -59,7 +60,6 @@ class ChangeProfileView(PermissionRequiredMixin, UpdateView):
     form_class = UserChangeForm
     template_name = "user_update.html"
     profile_form_class = ProfileChangeForm
-    context_object_name = "user_obj"
 
     def has_permission(self):
         return self.request.user.is_superuser or self.request.user == self.get_object()
@@ -88,8 +88,8 @@ class ChangeProfileView(PermissionRequiredMixin, UpdateView):
         return self.render_to_response(self.get_context_data(form=form, profile_form=profile_form))
 
 
-class ChangePasswordView(PasswordChangeView):
-    template_name = "change_password.html"
-
-    def get_success_url(self):
-        return reverse("accounts:profile", kwargs={"pk": self.request.user.pk})
+# class ChangePasswordView(PasswordChangeView):
+#     template_name = "change_password.html"
+#
+#     def get_success_url(self):
+#         return reverse("accounts:profile", kwargs={"pk": self.request.user.pk})

@@ -2,25 +2,23 @@
 
 {% block title %}My Profile{% endblock %}
 {% block nav %}
-    {% if user_obj == user %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url "accounts:profile_update" user_obj.pk %}">Edit Profile</a>
+        <a class="nav-link" href="{% url "accounts:profile_update" user.pk %}">Edit Profile</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">Update Password</a>
     </li>
-    {% endif %}
 {% endblock %}
 {% block content %}
     <div class="card flex-row mt-3">
         {% if user.profile.avatar %}
-            <img src="{{ user_obj.profile.avatar.url }}" class="card-img-top w-25" alt="...">
+            <img src="{{ user.profile.avatar.url }}" class="card-img-top w-25" alt="...">
         {% endif %}
         <div class="card-body ms-5">
-            <h5 class="card-title">Username: {{ user_obj.username }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">GitHub: {{ user_obj.profile.github }}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">About: {{ user_obj.profile.about }}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Email: {{ user_obj.email }}</h6>
+            <h5 class="card-title">Username: {{ user.username }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">GitHub: {{ user.profile.github }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">About: {{ user.profile.about }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Email: {{ user.email }}</h6>
         </div>
     </div>
     {% include "partial/project_list.html" %}
