@@ -62,7 +62,7 @@ class ChangeProfileView(PermissionRequiredMixin, UpdateView):
     profile_form_class = ProfileChangeForm
 
     def has_permission(self):
-        return self.request.user.is_superuser or self.request.user == self.get_object()
+        return self.request.user == self.get_object()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
