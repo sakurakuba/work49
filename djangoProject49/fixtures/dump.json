@@ -423,16 +423,61 @@
 },
 {
   "model": "issueTracker.issue",
-  "pk": 53,
+  "pk": 59,
   "fields": {
-    "created_at": "2022-08-12T06:17:30.430Z",
-    "updated_at": "2022-08-12T06:17:30.430Z",
-    "summary": "bingo06",
+    "created_at": "2022-08-19T00:35:56.419Z",
+    "updated_at": "2022-08-19T00:38:46.935Z",
+    "summary": "1st task",
     "description": "not specified",
-    "status": 1,
-    "project": 17,
+    "status": 3,
+    "project": 28,
     "type": [
       1
+    ]
+  }
+},
+{
+  "model": "issueTracker.issue",
+  "pk": 60,
+  "fields": {
+    "created_at": "2022-08-19T00:36:06.269Z",
+    "updated_at": "2022-08-19T00:37:24.604Z",
+    "summary": "2nd task",
+    "description": "not specified",
+    "status": 2,
+    "project": 28,
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "issueTracker.issue",
+  "pk": 61,
+  "fields": {
+    "created_at": "2022-08-19T00:36:17.455Z",
+    "updated_at": "2022-08-19T00:38:54.377Z",
+    "summary": "3rd task",
+    "description": "not specified",
+    "status": 2,
+    "project": 28,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "issueTracker.issue",
+  "pk": 63,
+  "fields": {
+    "created_at": "2022-08-19T00:39:13.025Z",
+    "updated_at": "2022-08-19T00:39:13.025Z",
+    "summary": "4",
+    "description": "not specified",
+    "status": 1,
+    "project": 28,
+    "type": [
+      2
     ]
   }
 },
@@ -487,8 +532,14 @@
     "project_name": "Dom54",
     "project_description": "adding new model and new admin",
     "created_at": "2022-07-26T02:39:59.445Z",
-    "updated_at": "2022-07-26T02:39:59.445Z",
-    "users": []
+    "updated_at": "2022-08-18T04:10:44.576Z",
+    "users": [
+      1,
+      3,
+      4,
+      5,
+      6
+    ]
   }
 },
 {
@@ -500,8 +551,14 @@
     "project_name": "Test01",
     "project_description": "bla bla",
     "created_at": "2022-07-26T06:09:45.015Z",
-    "updated_at": "2022-07-26T06:09:45.015Z",
-    "users": []
+    "updated_at": "2022-08-18T04:10:59.996Z",
+    "users": [
+      1,
+      3,
+      4,
+      5,
+      6
+    ]
   }
 },
 {
@@ -513,8 +570,11 @@
     "project_name": "Test02",
     "project_description": "ggg",
     "created_at": "2022-07-29T05:35:11.317Z",
-    "updated_at": "2022-07-29T05:35:11.317Z",
-    "users": []
+    "updated_at": "2022-08-18T04:11:14.520Z",
+    "users": [
+      1,
+      6
+    ]
   }
 },
 {
@@ -526,8 +586,11 @@
     "project_name": "test9",
     "project_description": "dsaf",
     "created_at": "2022-08-06T20:00:19.024Z",
-    "updated_at": "2022-08-06T20:00:19.024Z",
-    "users": []
+    "updated_at": "2022-08-18T04:11:24.738Z",
+    "users": [
+      1,
+      5
+    ]
   }
 },
 {
@@ -539,47 +602,60 @@
     "project_name": "Test08",
     "project_description": "bbb",
     "created_at": "2022-08-11T02:42:00.390Z",
-    "updated_at": "2022-08-11T02:42:00.390Z",
-    "users": []
+    "updated_at": "2022-08-18T04:11:37.048Z",
+    "users": [
+      1,
+      4,
+      5
+    ]
   }
 },
 {
   "model": "issueTracker.project",
-  "pk": 11,
+  "pk": 21,
   "fields": {
-    "start_date": "2022-08-11",
+    "start_date": "2022-08-18",
+    "end_date": "2022-08-29",
+    "project_name": "Test10",
+    "project_description": "bnm",
+    "created_at": "2022-08-18T03:02:56.976Z",
+    "updated_at": "2022-08-18T05:10:14.316Z",
+    "users": [
+      1,
+      6
+    ]
+  }
+},
+{
+  "model": "issueTracker.project",
+  "pk": 22,
+  "fields": {
+    "start_date": "2022-08-18",
     "end_date": "2022-08-21",
-    "project_name": "Test06",
-    "project_description": "vhjkfvckc",
-    "created_at": "2022-08-11T04:50:01.545Z",
-    "updated_at": "2022-08-12T05:30:40.252Z",
-    "users": []
+    "project_name": "Tets11",
+    "project_description": "asdas",
+    "created_at": "2022-08-18T03:12:35.891Z",
+    "updated_at": "2022-08-18T03:12:35.891Z",
+    "users": [
+      6
+    ]
   }
 },
 {
   "model": "issueTracker.project",
-  "pk": 12,
+  "pk": 28,
   "fields": {
-    "start_date": "2022-08-11",
-    "end_date": "2022-08-01",
-    "project_name": "Test11",
-    "project_description": "dgbzdb",
-    "created_at": "2022-08-11T05:18:02.701Z",
-    "updated_at": "2022-08-12T05:08:30.988Z",
-    "users": []
-  }
-},
-{
-  "model": "issueTracker.project",
-  "pk": 17,
-  "fields": {
-    "start_date": "2022-08-12",
-    "end_date": "2022-08-21",
-    "project_name": "Test07",
-    "project_description": "bnmvnb",
-    "created_at": "2022-08-12T06:04:51.391Z",
-    "updated_at": "2022-08-12T06:04:51.391Z",
-    "users": []
+    "start_date": "2022-08-19",
+    "end_date": "2022-08-22",
+    "project_name": "Test12",
+    "project_description": "dada",
+    "created_at": "2022-08-19T00:35:33.613Z",
+    "updated_at": "2022-08-19T00:36:25.020Z",
+    "users": [
+      7,
+      8,
+      9
+    ]
   }
 }
 ]
