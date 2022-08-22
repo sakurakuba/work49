@@ -88,8 +88,8 @@ class ChangeProfileView(PermissionRequiredMixin, UpdateView):
         return self.render_to_response(self.get_context_data(form=form, profile_form=profile_form))
 
 
-# class ChangePasswordView(PasswordChangeView):
-#     template_name = "change_password.html"
-#
-#     def get_success_url(self):
-#         return reverse("accounts:profile", kwargs={"pk": self.request.user.pk})
+class ChangePasswordView(PasswordChangeView):
+    template_name = "change_password.html"
+
+    def get_success_url(self):
+        return reverse("accounts:profile", kwargs={"pk": self.request.user.pk})
