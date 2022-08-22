@@ -43,6 +43,7 @@ class ProfileView(LoginRequiredMixin, DetailView):
     template_name = "profile.html"
     paginate_by = 6
     paginate_orphans = 0
+    context_object_name = "user_obj"
 
     def get_context_data(self, **kwargs):
         paginator = Paginator(self.get_object().projects.all(),
@@ -62,6 +63,7 @@ class ChangeProfileView(PermissionRequiredMixin, UpdateView):
     form_class = UserChangeForm
     template_name = "user_update.html"
     profile_form_class = ProfileChangeForm
+
 
     def has_permission(self):
         return self.request.user == self.get_object()
