@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import CreateView, DetailView, UpdateView
 from accounts.forms import MyUserCreationForm, UserChangeForm, ProfileChangeForm
+from accounts.models import Profile
 
 User = get_user_model()
 
@@ -19,6 +20,7 @@ class RegisterView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
+        Profile.objects.create(user=user)
         login(self.request, user)
         return redirect(self.get_success_url())
 
